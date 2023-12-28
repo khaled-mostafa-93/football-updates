@@ -49,11 +49,6 @@
                 }
               ],
               "outputHashing": "all"
-            },
-            "development": {
-              "optimization": false,
-              "extractLicenses": false,
-              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
@@ -63,12 +58,9 @@
           "configurations": {
             "production": {
               "buildTarget": "football-updates:build:production"
-            },
-            "development": {
-              "buildTarget": "football-updates:build:development"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "production"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",

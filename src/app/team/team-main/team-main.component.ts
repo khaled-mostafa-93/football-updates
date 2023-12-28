@@ -7,7 +7,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './team-main.component.scss'
 })
 export class TeamMainComponent implements OnInit {
-  teamId:string = ''
+  teamId!:number;
   constructor(private route : ActivatedRoute){
 
   }

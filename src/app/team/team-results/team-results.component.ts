@@ -8,7 +8,7 @@ import { TeamResponse } from '../../shared/model/team/team-response';
   styleUrl: './team-results.component.scss'
 })
 export class TeamResultsComponent {
-  @Input() teamId: string = '';
+  @Input() teamId!: number;
   teamFixtures!: TeamResponse[];
 
   constructor(private teamControllerService: TeamControllerService){}

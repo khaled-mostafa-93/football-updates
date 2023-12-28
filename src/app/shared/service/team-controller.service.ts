@@ -1,42 +1,22 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TeamApiResponse } from '../model/team/team-api-response.model';
+import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
+import { CurrentSeasonService } from './current-season.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TeamControllerService {
+  constructor(private httpClient: HttpClient, private currentSeasonService: CurrentSeasonService){
+  }
+  private leagueStandingUrl = environment.apiUrl +  '/fixtures?last=10&season=' +this.currentSeasonService.getCurrentSeason();
 
-  private arsenalFixturesUrl: string = '/assets/data/arsenal.json';
-  private madridFixturesUrl: string = '/assets/data/madrid.json';
-  private bayernFixturesUrl: string = '/assets/data/bayern.json';
-  private parisFixturesUrl: string = '/assets/data/paris.json';
-  private milanFixturesUrl: string = '/assets/data/milan.json';
-  constructor(private httpClient: HttpClient ){
-  }
-  getTeamResults(teamId: string) {
-    let url : string;
-  switch (teamId) {
-    case "42":
-      url = this.arsenalFixturesUrl
-      break;
-      case "541":
-        url = this.madridFixturesUrl
-        break;
-        case "157":
-      url = this.bayernFixturesUrl
-      break;
-      case "85":
-      url = this.parisFixturesUrl
-      break;
-      case "489":
-      url = this.milanFixturesUrl
-      break;
-    default:
-      throw new Error("unknown league");
+  getTeamResults(teamId : number): Observable<TeamApiResponse> {
 
-      break;
-  }
-  return this.httpClient.get<TeamApiResponse>(url);
-  }
+  return this.httpClient.get<TeamApiResponse>(this.leagueStandingUrl + "&team=" + teamId,
+   {headers: {"x-rapidapi-key": environment.apiKey}});
+ }
+
 }

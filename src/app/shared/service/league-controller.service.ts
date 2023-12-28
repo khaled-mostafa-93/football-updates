@@ -1,44 +1,21 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { LeagueStandingsResponse } from '../model/league/league-standings-response.model';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
+import { CurrentSeasonService } from './current-season.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LeagueControllerService {
-  private englandStandingsUrl: string = '/assets/data/england.json';
-  private spainStandingsUrl: string = '/assets/data/spain.json';
-  private germanyStandingsUrl: string = '/assets/data/germany.json';
-  private franceStandingsUrl: string = '/assets/data/france.json';
-  private italyStandingsUrl: string = '/assets/data/italy.json';
-  constructor(private httpClient: HttpClient ){
+  constructor(private httpClient: HttpClient, private currentSeasonService: CurrentSeasonService){
   }
-
+  private leagueStandingUrl = environment.apiUrl +  '/standings?season=' +this.currentSeasonService.getCurrentSeason();
 
  getLeagueStandings(leagueId : number): Observable<LeagueStandingsResponse> {
-  let url : string;
-  switch (leagueId.toString()) {
-    case "39":
-      url = this.englandStandingsUrl
-      break;
-      case "140":
-        url = this.spainStandingsUrl
-        break;
-        case "78":
-      url = this.germanyStandingsUrl
-      break;
-      case "61":
-      url = this.franceStandingsUrl
-      break;
-      case "135":
-      url = this.italyStandingsUrl
-      break;
-    default:
-      throw new Error("unknown league");
 
-      break;
-  }
-  return this.httpClient.get<LeagueStandingsResponse>(url);
+  return this.httpClient.get<LeagueStandingsResponse>(this.leagueStandingUrl + "&league=" + leagueId,
+   {headers: {"x-rapidapi-key": environment.apiKey}});
  }
 }
