@@ -1,5 +1,9 @@
-<p>league-main works!</p>
-<app-league-countries></app-league-countries>
+<div class="menu">
+  <p class="title">FOOTBALL UPDATES</p>
+  <app-league-countries [selectedId]="leagueId"></app-league-countries>
+
+</div>
+
 <ng-container *ngIf="leagueId">
   <app-league-table [leagueId]="leagueId"></app-league-table>
 </ng-container>

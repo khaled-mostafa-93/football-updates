@@ -1,4 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { TeamControllerService } from '../../shared/service/team-controller.service';
+import { TeamResponse } from '../../shared/model/team/team-response';
 
 @Component({
   selector: 'app-team-results',
@@ -7,5 +9,14 @@ import { Component, Input } from '@angular/core';
 })
 export class TeamResultsComponent {
   @Input() teamId: string = '';
+  teamFixtures!: TeamResponse[];
+
+  constructor(private teamControllerService: TeamControllerService){}
+  ngOnInit(): void {
+    this.teamControllerService.getTeamResults(this.teamId).subscribe(res => {
+      this.teamFixtures = res.response;
+
+    });
+  }
 
 }

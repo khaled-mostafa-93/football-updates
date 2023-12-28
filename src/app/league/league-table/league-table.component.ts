@@ -1,11 +1,23 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { LeagueControllerService } from './../../shared/service/league-controller.service';
+import { Standing } from '../../shared/model/league/league-standing.model';
 
 @Component({
   selector: 'app-league-table',
   templateUrl: './league-table.component.html',
   styleUrl: './league-table.component.scss'
 })
-export class LeagueTableComponent {
+export class LeagueTableComponent implements OnChanges {
 
-  @Input() leagueId : string = '';
+  @Input() leagueId! : number;
+leagueStandings: Standing[] = [];
+
+constructor(private leagueControllerService: LeagueControllerService){}
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.leagueControllerService.getLeagueStandings(this.leagueId).subscribe(res => {
+      this.leagueStandings = res.response[0].league.standings[0];
+    });
+  }
+
 }

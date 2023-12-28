@@ -8,14 +8,15 @@ import { Observable, switchMap } from 'rxjs';
   styleUrl: './league-main.component.scss'
 })
 export class LeagueMainComponent implements OnInit {
-  leagueId: string = '';
+  leagueId!: number ;
 
   constructor(private route: ActivatedRoute) {
- }
-  ngOnInit(): void {
     this.route.params.subscribe(param =>{
       this.leagueId = param['id'];
     });
+ }
+  ngOnInit(): void {
+
 
   }
 

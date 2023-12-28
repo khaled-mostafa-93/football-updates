@@ -1,2 +1,19 @@
-<p>team-results works!</p>
-<p>{{teamId}}</p>
+
+
+<table class="table">
+
+      <tr *ngFor="let fixture of teamFixtures">
+          <td> <img [src]="fixture.teams.home.logo"  width="40px" height="40px"></td>
+          <td>{{ fixture.teams.home.name }}</td>
+          <td>{{ fixture.goals.home }}</td>
+          <td>-</td>
+          <td>{{ fixture.goals.away }}</td>
+          <td>{{ fixture.teams.away.name }}</td>
+          <td> <img [src]="fixture.teams.away.logo" width="40px" height="40px"></td>
+      </tr>
+
+</table>
+<ng-container *ngIf=" teamFixtures">
+  <button class="btn btn-primary"  [routerLink]="['/league/',teamFixtures[0].league.id]">Back</button>
+</ng-container>
+
