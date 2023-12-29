@@ -13,7 +13,7 @@ export class TeamResultsComponent {
 
   constructor(private teamControllerService: TeamControllerService){}
   ngOnInit(): void {
-    this.teamControllerService.getTeamResults(this.teamId).subscribe(res => {
+    this.teamControllerService.getTeamResults(this.teamId)?.subscribe(res => {
       this.teamFixtures = res.response;
 
     });

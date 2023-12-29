@@ -15,7 +15,7 @@ leagueStandings: Standing[] = [];
 constructor(private leagueControllerService: LeagueControllerService){}
 
   ngOnChanges(changes: SimpleChanges): void {
-    this.leagueControllerService.getLeagueStandings(this.leagueId).subscribe(res => {
+    this.leagueControllerService.getLeagueStandings(this.leagueId)?.subscribe(res => {
       this.leagueStandings = res.response[0].league.standings[0];
     });
   }
