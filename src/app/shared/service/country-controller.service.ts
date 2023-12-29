@@ -7,7 +7,7 @@ import { Country } from '../model/country.model';
   providedIn: 'root'
 })
 export class CountryControllerService {
-  private countriesUrl: string = '/assets/data/countries.json';
+  private countriesUrl: string = './assets/data/countries.json';
   constructor(private httpClient: HttpClient) {
   }
   private countriesObservable!: Observable<Country[]>
