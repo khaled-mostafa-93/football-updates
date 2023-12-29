@@ -1,4 +1,4 @@
-export interface Goals {
+export interface LeagueGoals {
   for: number;
   against: number;
 }

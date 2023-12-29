@@ -1,7 +1,7 @@
 import { All } from "./league-all.model";
 import { Team } from "../team.model";
 
-export interface Standing {
+export interface LeagueStanding {
   rank: number;
   team: Team;
   points: number;

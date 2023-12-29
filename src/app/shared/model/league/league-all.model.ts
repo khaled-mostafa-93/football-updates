@@ -1,9 +1,9 @@
-import { Goals } from "./goals.model";
+import { LeagueGoals } from "./league-goals.model";
 
 export interface All {
   played: number;
   win: number;
   draw: number;
   lose: number;
-  goals: Goals;
+  goals: LeagueGoals;
 }

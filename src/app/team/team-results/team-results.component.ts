@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { TeamControllerService } from '../../shared/service/team-controller.service';
-import { TeamResponse } from '../../shared/model/team/team-response';
+import { TeamResponse } from '../../shared/model/team/team-response.model';
 
 @Component({
   selector: 'app-team-results',

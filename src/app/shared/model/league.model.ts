@@ -1,4 +1,4 @@
-import { Standing } from "./league-standing.model";
+import { LeagueStanding } from "./league/league-standing.model";
 
 export interface League {
   id: number;
@@ -7,5 +7,5 @@ export interface League {
   logo: string;
   flag: string;
   season: number;
-  standings: Standing[][];
+  standings: LeagueStanding[][];
 }

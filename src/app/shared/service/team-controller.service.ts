@@ -1,9 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { TeamApiResponse } from '../model/team/team-api-response.model';
 import { Observable, shareReplay } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { CurrentSeasonService } from './current-season.service';
+import { LeagueStanding } from '../model/league/league-standing.model';
+import { TeamApiResponse } from '../model/team/team-api-response.model';
 
 @Injectable({
   providedIn: 'root'

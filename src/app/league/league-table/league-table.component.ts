@@ -1,6 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { LeagueControllerService } from './../../shared/service/league-controller.service';
-import { Standing } from '../../shared/model/league/league-standing.model';
+import { LeagueStanding } from '../../shared/model/league/league-standing.model';
 
 @Component({
   selector: 'app-league-table',
@@ -10,7 +10,7 @@ import { Standing } from '../../shared/model/league/league-standing.model';
 export class LeagueTableComponent implements OnChanges {
 
   @Input() leagueId!: number;
-  leagueStandings: Standing[] = [];
+  leagueStandings: LeagueStanding[] = [];
 
   constructor(private leagueControllerService: LeagueControllerService) { }
 
