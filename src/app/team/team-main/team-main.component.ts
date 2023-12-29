@@ -7,15 +7,12 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './team-main.component.scss'
 })
 export class TeamMainComponent implements OnInit {
-  teamId!:number;
-  constructor(private route : ActivatedRoute){
-
+  teamId!: number;
+  constructor(private route: ActivatedRoute) {
   }
   ngOnInit(): void {
-    this.route.params.subscribe(param =>{
+    this.route.params.subscribe(param => {
       this.teamId = param['id'];
     });
   }
-
-
 }

@@ -4,8 +4,8 @@ import { TeamMainComponent } from './team/team-main/team-main.component';
 
 export const routes: Routes = [
 
-  { path: 'league', component: LeagueMainComponent, pathMatch: "full"},
-  { path: 'team/:id', component: TeamMainComponent},
-  { path: 'league/:id', component: LeagueMainComponent, pathMatch: "full"},
-  { path: '', redirectTo: '/league', pathMatch: "full"},
+  { path: 'league', component: LeagueMainComponent, pathMatch: "full" },
+  { path: 'team/:id', component: TeamMainComponent },
+  { path: 'league/:id', component: LeagueMainComponent, pathMatch: "full" },
+  { path: '', redirectTo: '/league', pathMatch: "full" },
 ];

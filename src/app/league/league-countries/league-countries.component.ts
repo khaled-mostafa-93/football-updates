@@ -8,18 +8,14 @@ import { CountryControllerService } from './../../shared/service/country-control
   styleUrl: './league-countries.component.scss'
 })
 export class LeagueCountriesComponent implements OnInit {
-  @Input() selectedId! : number;
+  @Input() selectedId!: number;
 
-  countries! : Country[];
+  countries!: Country[];
 
-  constructor(private countryControllerService: CountryControllerService){}
+  constructor(private countryControllerService: CountryControllerService) { }
   ngOnInit(): void {
     this.countryControllerService.getCountries().subscribe(res => {
       this.countries = res;
     });
   }
-
-
-
-
 }

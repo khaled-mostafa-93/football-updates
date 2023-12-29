@@ -1,20 +1,15 @@
-.nav-bar
-{
+.nav-bar {
   background-color: #ffffffd6;
   border-radius: 10px;
   margin-bottom: 20px;
   padding: 7px;
 }
-button
-{
+button {
   width: 100px;
   border: none;
   background: transparent;
-
-
 }
 button.selected {
   text-decoration: underline;
   color: blue;
-
 }

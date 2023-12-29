@@ -9,10 +9,10 @@ import { Standing } from '../../shared/model/league/league-standing.model';
 })
 export class LeagueTableComponent implements OnChanges {
 
-  @Input() leagueId! : number;
-leagueStandings: Standing[] = [];
+  @Input() leagueId!: number;
+  leagueStandings: Standing[] = [];
 
-constructor(private leagueControllerService: LeagueControllerService){}
+  constructor(private leagueControllerService: LeagueControllerService) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     this.leagueControllerService.getLeagueStandings(this.leagueId)?.subscribe(res => {

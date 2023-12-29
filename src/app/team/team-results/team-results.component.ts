@@ -11,12 +11,10 @@ export class TeamResultsComponent {
   @Input() teamId!: number;
   teamFixtures!: TeamResponse[];
 
-  constructor(private teamControllerService: TeamControllerService){}
+  constructor(private teamControllerService: TeamControllerService) { }
   ngOnInit(): void {
     this.teamControllerService.getTeamResults(this.teamId)?.subscribe(res => {
       this.teamFixtures = res.response;
-
     });
   }
-
 }
