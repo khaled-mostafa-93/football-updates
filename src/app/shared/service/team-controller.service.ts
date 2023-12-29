@@ -19,7 +19,7 @@ export class TeamControllerService {
 
     if (!this.cache.has(teamId)) {
       this.cache.set(teamId, this.httpClient.get<TeamApiResponse>(this.leagueStandingUrl + "&team=" + teamId,
-        { headers: { "x-rapidapi-key": environment.apiKey } }).pipe(shareReplay(1)));
+        { headers: { "x-apisports-key": environment.apiKey } }).pipe(shareReplay(1)));
     }
     return this.cache.get(teamId);
   }
